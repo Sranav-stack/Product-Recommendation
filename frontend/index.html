@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Recommender</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #f5f7fa; color: #1a1a2e; min-height: 100vh; padding: 40px 20px; }
+    .container { max-width: 700px; margin: 0 auto; }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+    p.sub { color: #666; font-size: 14px; margin-bottom: 30px; }
+    label { font-size: 13px; font-weight: 600; color: #555; display: block; margin-bottom: 8px; }
+    #selected-card { margin-top: 24px; background: white; border-radius: 14px;
+      padding: 20px 24px; border: 2px solid #6366f1; display: none; }
+    #selected-card h2 { font-size: 18px; margin-bottom: 4px; }
+    #selected-card .cat { font-size: 12px; color: #6366f1; font-weight: 600;
+      background: #eef2ff; padding: 3px 10px; border-radius: 20px; display: inline-block; }
+    #results-section { margin-top: 28px; display: none; }
+    #results-section h3 { font-size: 15px; font-weight: 600; color: #444; margin-bottom: 14px; }
+    .rec-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+    
+    /* Updated card layout to look uniform when common tags vary in text length */
+    .rec-card { background: white; border-radius: 12px; padding: 16px 18px;
+      border: 1.5px solid #e5e7eb; transition: all 0.2s; cursor: pointer;
+      display: flex; flex-direction: column; justify-content: space-between; }
+    .rec-card:hover { border-color: #6366f1; transform: translateY(-2px); }
+    .rec-card .name { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #1a1a2e; }
+    .rec-card .cat { font-size: 11px; color: #10b981; font-weight: 600;
+      background: #ecfdf5; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-bottom: 8px; align-self: flex-start; }
+    .rec-card .score-bar { height: 4px; background: #e5e7eb; border-radius: 2px; margin-top: 8px; }
+    .rec-card .score-fill { height: 100%; background: #6366f1; border-radius: 2px; }
+    .rec-card .score-label { font-size: 11px; color: #999; margin-top: 4px; }
+    #loader { display: none; text-align: center; padding: 30px; color: #999; font-size: 14px; }
+    
+    /* Interactive Feature Style Rules */
+    #search-input:focus { border-color: #6366f1 !important; }
+    .pill { padding:6px 14px; border-radius:20px; border:2px solid #e0e0e0; background:white; cursor:pointer; font-size:12px; font-weight:600; color:#666; transition: all 0.2s; }
+    .pill:hover { border-color: #6366f1; color: #6366f1; }
+    .pill.active { background:#6366f1; border-color:#6366f1; color:white; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Product Recommender</h1>
+  <p class="sub">Search a product to see what others also liked</p>
+
+  <label for="search-input">Search for a product</label>
+  <div style="position: relative;">
+    <input type="text" id="search-input" placeholder="Search a product..." autocomplete="off" style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:10px; font-size:15px; outline:none; transition: border 0.2s;">
+    <div id="suggestions" style="position: absolute; top: 100%; left: 0; right: 0; background:white; border:2px solid #e0e0e0; border-top: none; border-radius: 0 0 10px 10px; max-height: 250px; overflow-y: auto; z-index: 10; display: none; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);"></div>
+  </div>
+
+  <div id="selected-card">
+    <span class="cat" id="selected-cat">Active Selection</span>
+    <h2 id="selected-name"></h2>
+  </div>
+
+  <div id="loader">Finding similar products...</div>
+
+  <div id="results-section">
+    <h3>Customers who viewed this also liked</h3>
+    
+    <!-- Filter Bar Component Layer -->
+    <div id="filters" style="display:flex; gap:8px; flex-wrap:wrap; margin:16px 0 20px 0;">
+      <button class="pill active" onclick="filterCat('All', event)">All</button>
+      <button class="pill" onclick="filterCat('Electronics', event)">Electronics</button>
+      <button class="pill" onclick="filterCat('Books', event)">Books</button>
+      <button class="pill" onclick="filterCat('Sports', event)">Sports</button>
+      <button class="pill" onclick="filterCat('Beauty', event)">Beauty</button>
+    </div>
+
+    <div class="rec-cards" id="rec-cards"></div>
+  </div>
+</div>
+
+<script>
+  const API = 'http://localhost:5000';
+  let allProducts = [];
+  let allRecs = []; 
+
+  async function loadProducts() {
+    const res = await fetch(`${API}/products`);
+    allProducts = await res.json();
+  }
+
+  document.getElementById('search-input').addEventListener('input', function() {
+    const val = this.value.toLowerCase();
+    const box = document.getElementById('suggestions');
+    if (!val) { box.style.display = 'none'; return; }
+    const matches = allProducts.filter(p => p.toLowerCase().includes(val));
+    box.innerHTML = matches.slice(0, 6).map(p =>
+      `<div onclick="selectProduct('${p}')" style="padding:10px 16px;cursor:pointer;font-size:14px;border-bottom:1px solid #f1f5f9;"
+      onmouseover="this.style.background='#f5f7fa'" onmouseout="this.style.background='white'">${p}</div>`
+    ).join('');
+    box.style.display = matches.length ? 'block' : 'none';
+  });
+
+  function selectProduct(name) {
+    document.getElementById('search-input').value = name;
+    document.getElementById('suggestions').style.display = 'none';
+    document.getElementById('selected-name').textContent = name;
+    document.getElementById('selected-card').style.display = 'block';
+    fetchRecommendations(name);
+  }
+
+  async function fetchRecommendations(name) {
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('results-section').style.display = 'none';
+
+    const res = await fetch(`${API}/recommend/${encodeURIComponent(name)}`);
+    allRecs = await res.json(); 
+
+    document.getElementById('loader').style.display = 'none';
+    
+    // Reset filters back to 'All' on new queries
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    const allPill = document.querySelector(".pill[onclick*='All']");
+    if (allPill) allPill.classList.add('active');
+
+    renderCards(allRecs);
+    const section = document.getElementById('results-section');
+    section.style.display = 'block';
+  }
+
+  function renderCards(data) {
+    const cards = document.getElementById('rec-cards');
+    cards.innerHTML = '';
+
+    data.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'rec-card';
+      const pct = Math.round(item.score * 100);
+      
+      // Fallback cleanly if common_tags string is empty or missing
+      const tagsArray = item.common_tags || [];
+      const tagsString = tagsArray.length > 0 ? tagsArray.join(', ') : 'same category';
+
+      card.innerHTML = `
+        <div>
+          <div class="cat">${item.category}</div>
+          <div class="name">${item.name}</div>
+          <div style="font-size:11px; color:#777; margin: 6px 0 10px 0; line-height:1.4;">
+            Matched via: <span style="color:#6366f1; font-weight:600;">${tagsString}</span>
+          </div>
+        </div>
+        <div>
+          <div class="score-bar"><div class="score-fill" style="width:${pct}%"></div></div>
+          <div class="score-label">Match: ${pct}%</div>
+        </div>
+      `;
+      
+      card.onclick = () => {
+        selectProduct(item.name);
+      };
+      cards.appendChild(card);
+    });
+  }
+
+  function filterCat(cat, event) {
+    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    const filtered = cat === 'All' ? allRecs : allRecs.filter(r => r.category === cat);
+    renderCards(filtered);
+  }
+
+  // Close suggestion drop box if user clicks out somewhere else on the page
+  document.addEventListener('click', function(e) {
+    if (e.target.id !== 'search-input' && e.target.id !== 'suggestions') {
+      document.getElementById('suggestions').style.display = 'none';
+    }
+  });
+
+  loadProducts();
+</script>
+</body>
+</html>

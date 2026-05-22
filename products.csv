@@ -1,0 +1,101 @@
+id,name,category,tags
+1,Wireless Bluetooth Headphones,Electronics,bluetooth audio wireless noise-cancelling music
+2,Noise Cancelling Earbuds,Electronics,bluetooth audio wireless earbuds compact music
+3,Over-Ear Studio Headphones,Electronics,audio wired studio professional music
+4,Portable Bluetooth Speaker,Electronics,bluetooth audio speaker portable outdoor
+5,USB-C Fast Charger,Electronics,charging cable usb-c fast power
+6,Running Shoes,Sports,running fitness outdoor lightweight breathable
+7,Yoga Mat,Sports,yoga fitness exercise non-slip indoor
+8,Resistance Bands Set,Sports,fitness exercise strength training home gym
+9,Cycling Gloves,Sports,cycling outdoor fitness grip sports
+10,Water Bottle 1L,Sports,hydration outdoor fitness gym
+11,Python Programming Book,Books,programming coding python learning beginner
+12,Data Science Handbook,Books,data science python machine learning analytics
+13,Clean Code Book,Books,programming software engineering best practices
+14,The Pragmatic Programmer,Books,programming software career best practices
+15,Machine Learning Yearning,Books,machine learning AI deep learning guide
+16,Face Wash Gel,Beauty,skincare face wash gel cleansing daily
+17,Vitamin C Serum,Beauty,skincare serum vitamin-c brightening anti-aging
+18,Moisturising Sunscreen SPF50,Beauty,skincare sunscreen moisturiser daily protection
+19,Lip Balm Pack,Beauty,skincare lips hydration daily care
+20,Night Cream,Beauty,skincare face night moisturiser anti-aging
+21,Adjustable Cotton Yoga Strap,Fitness & Wellness,"yoga strap, stretching, flexibility, cotton, adjustable, exercise, support, fitness"
+22,intel i5 chip,Electronics and Technology,"Intel's premier mainstream processor, balancing price and performance for gaming, content creation, and everyday multitasking"
+23,Ryzen 7,Electronics and Technology,"High-performance, geared toward heavy multitasking, streaming, and premium gaming"
+24,Mechanical Gaming Keyboard,Electronics,keyboard mechanical gaming rgb wired typing
+25,Ergonomic Office Chair,Furniture,office chair ergonomic lumbar support mesh comfort
+26,Gourmet Coffee Beans 1kg,Groceries,coffee beans arabica dark roast beverage morning
+27,Stainless Steel Chef Knife,Kitchen,kitchen knife chef stainless steel cooking sharp
+28,Hydrating Sheet Mask Pack,Beauty,skincare sheet-mask hydration brightening self-care
+29,Trail Running Backpack,Sports,backpack outdoor running hydration hiking lightweight
+30,Smart Fitness Watch,Electronics,smartwatch fitness tracking heart-rate bluetooth wearables
+31,Introduction to Algorithms Book,Books,programming algorithms computer-science learning textbook
+32,Matte Liquid Lipstick,Beauty,makeup lips cosmetic long-lasting daily
+33,Cast Iron Skillet,Kitchen,kitchen cookware cast-iron skillet cooking rustic
+34,Wireless Ergonomic Mouse,Electronics,mouse wireless ergonomic office bluetooth productivity
+35,Immersion Hand Blender,Kitchen,kitchen blender immersion cooking soup smoothie
+36,Foam Roller,Sports,fitness recovery foam-roller massage muscles stretching
+37,Designing Data-Intensive Applications,Books,programming software-architecture backend databases distributed-systems
+38,Hyaluronic Acid Toner,Beauty,skincare toner hydration face soothing daily
+39,Dual-Band Wi-Fi 6 Router,Electronics,networking router wifi internet wireless high-speed
+40,Resistance Loop Bands,Sports,fitness resistance-bands strength exercise home-gym mobility
+41,Compilers: Principles Techniques and Tools,Books,programming computer-science compilers software-engineering textbook
+42,Exfoliating Salicylic Acid Cleanser,Beauty,skincare cleanser acne-control acne salicylic-acid daily
+43,Digital Food Scale,Kitchen,kitchen scale digital measuring baking cooking diet
+44,Noise-Isolating Mechanical Switches,Electronics,keyboard mechanical switches linear gaming customization
+45,Adjustable Dumbbells Set,Sports,fitness dumbbells weightlifting strength home-gym workout
+46,Refactoring: Improving the Design of Existing Code,Books,programming refactoring clean-code software-engineering best-practices
+47,Hydrocolloid Acne Pimple Patches,Beauty,skincare acne blemishes pimple-patch spot-treatment night-care
+48,Non-Stick Baking Mat Set,Kitchen,kitchen baking silicone non-stick pastry oven-safe
+49,Portable External SSD 1TB,Electronics,storage ssd external portable usb-c backup high-speed
+50,Breathable Wrist Wraps,Sports,fitness weightlifting gym powerlifting support protection
+51,Structure and Interpretation of Computer Programs,Books,programming computer-science lisp functional-programming textbook
+52,Waterproof Mascara,Beauty,makeup eyes mascara waterproof long-lasting cosmetic
+53,Stainless Steel Milk Frother,Kitchen,kitchen coffee frother milk latte barista electric
+54,Ultra-Wide QHD Gaming Monitor,Electronics,monitor ultrawide gaming display high-refresh-rate productivity
+55,Heavy Duty Grip Chalk,Sports,fitness weightlifting climbing chalk gym grip-strength
+56,Database Internals Book,Books,programming databases storage-engines distributed-systems engineering
+57,Centella Asiatica Calming Gel,Beauty,skincare centella cica calming gel redness soothing
+58,Cold Brew Coffee Maker,Kitchen,kitchen coffee cold-brew brewer iced-coffee glass
+59,Anker GanPrime 65W Charger,Electronics,charging wall-charger gan fast-charging usb-c power
+60,Liquid Chalk for Powerlifting,Sports,fitness grip chalk powerlifting weightlifting climbing gym
+61,Site Reliability Engineering Book,Books,programming sre devops infrastructure distributed-systems google
+62,Niacinamide 10% Zinc 1% Serum,Beauty,skincare serum niacinamide oil-control pores blemishes
+63,Air Fryer XL 5.5L,Kitchen,kitchen appliance air-fryer cooking healthy oil-free
+64,Mechanical Keyboard Aviator Cable,Electronics,keyboard coiled-cable custom-keyboard aviator-connector type-c desk-setup
+65,Weighted Pull-Up Belt,Sports,fitness calisthenics weightlifting pull-up dip-belt gym strength
+66,An Introduction to Statistical Learning,Books,data-science machine-learning r-programming statistics learning textbook
+67,Retinol 0.5% in Squalane,Beauty,skincare serum retinol anti-aging night-care wrinkles
+68,Electric Gooseneck Kettle,Kitchen,kitchen appliance kettle gooseneck pour-over coffee barista
+69,USB-C Docking Station 11-in-1,Electronics,docking-station usb-c hub dual-monitor hdmi productivity laptop
+70,Gymnastic Rings with Straps,Sports,fitness calisthenics gymnastics wooden-rings bodyweight home-gym
+71,Computer Systems: A Programmer's Perspective,Books,programming computer-science low-level assembly systems textbook
+72,Ceramide Barrier Support Serum,Beauty,skincare serum ceramides skin-barrier hydration soothing daily
+73,Mandoline Slicer with Safety Guard,Kitchen,kitchen slicer mandoline vegetables meal-prep sharp cooking
+74,Raspberry Pi 5 8GB,Electronics,single-board-computer iot linux hardware prototyping diy
+75,Liquid Chalk Premium Grip,Sports,fitness climbing weightlifting gymnastics chalk grip dry-hands
+76,Operating Systems: Three Easy Pieces,Books,programming computer-science operating-systems virtualization concurrency textbook
+77,All-in-One Tinted Sunscreen SPF50,Beauty,skincare sunscreen tinted daily-protection uv-filter skin-barrier
+78,Precision Espresso Scale,Kitchen,kitchen coffee scale espresso timer gram-scale barista
+79,Solderless Breadboard Kit,Electronics,hardware prototyping electronics breadboard jumper-wires diy
+80,High-Density Ab Mat,Sports,fitness core workout ab-mat crunch gym home-gym
+81,Linkers and Loaders Book,Books,programming computer-science systems low-level compilers linkers
+82,BHA Blackhead Power Liquid,Beauty,skincare exfoliating salicylic-acid blackhead pores korean-beauty
+83,Pour-Over Glass Coffeemaker,Kitchen,kitchen coffee pour-over glass brewer manual barista
+84,STMicroelectronics STM32 Blue Pill,Electronics,microcontroller arm embedded firmware hardware development-board
+85,Heavy Resistance Hip Band,Sports,fitness glute-band resistance resistance-loop warm-up home-gym
+86,Linux Kernel Development,Books,programming linux kernel systems operating-systems low-level
+87,Snail Mucin 96% Power Essence,Beauty,skincare essence snail-mucin hydration repair glowing
+88,French Press Coffee Maker 1L,Kitchen,kitchen coffee french-press glass manual-brewer cafetiere
+89,TTL USB to Serial Adapter,Electronics,hardware serial uart debug ftdi embedded dev-tools
+90,Liquid Grip Chalk 250ml,Sports,fitness chalk grip gym lifting climbing dry-hands
+91,Understanding the Linux Virtual Memory Manager,Books,programming linux kernel memory-management systems engineering
+92,Glow Deep Serum Rice + Alpha-Arbutin,Beauty,skincare serum brightening pigmentation alpha-arbutin daily
+93,Manual Ceramic Burr Coffee Grinder,Kitchen,kitchen coffee grinder burr manual hand-crank barista
+94,Logic Analyzer 16-Channel,Electronics,hardware debug digital-signals analyzer logic protocol-analysis
+95,Paracord Gym Rings Straps,Sports,fitness calisthenics gymnastics workout home-gym suspension
+96,Modern Operating Systems,Books,programming computer-science systems architecture tanenbaum textbook
+97,Green Tea Seed Hyaluronic Serum,Beauty,skincare serum hydration green-tea soothing daily-care
+98,Non-Electric Cold Drip Tower,Kitchen,kitchen coffee cold-brew slow-drip glass barista
+99,Bus Pirate v4 Universal Interface,Electronics,hardware hacking debugging protocol-interface i2c spi bus
+100,Parachute Cord 550 Spool,Sports,outdoor survival tactical cord camping utility
